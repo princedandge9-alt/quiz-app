@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A browser-based multiple-choice quiz app built with HTML, CSS and JavaScript." />
+  <title>Web Dev Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <h1>Web Dev Quiz</h1>
+    <button id="theme-toggle" class="theme-btn" type="button" aria-label="Switch to dark mode">🌙</button>
+  </header>
+
+  <main class="container">
+    <!-- Screen 1: Start -->
+    <section id="start-screen" class="card screen">
+      <h2>Test your web development knowledge</h2>
+      <p>Answer 10 multiple-choice questions and see your score at the end.</p>
+      <p id="best-score" class="best-score"></p>
+      <button id="start-btn" class="btn btn-primary" type="button">Start Quiz</button>
+      <p class="hint">Tip: press 1 to 4 to choose an answer, and Enter for Next.</p>
+    </section>
+
+    <!-- Screen 2: Quiz -->
+    <section id="quiz-screen" class="card screen hidden">
+      <div class="quiz-meta">
+        <span id="question-counter">Question 1 of 10</span>
+        <span id="score-live">Score: 0</span>
+      </div>
+
+      <div class="progress-track" aria-hidden="true">
+        <div id="progress-bar" class="progress-fill"></div>
+      </div>
+
+      <h2 id="question-text" class="question-text"></h2>
+      <div id="options" class="options"></div>
+
+      <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+
+      <div class="nav-buttons">
+        <button id="prev-btn" class="btn btn-secondary" type="button">Previous</button>
+        <button id="next-btn" class="btn btn-primary" type="button">Next</button>
+      </div>
+    </section>
+
+    <!-- Screen 3: Result -->
+    <section id="result-screen" class="card screen hidden">
+      <h2>Quiz Complete</h2>
+      <p id="final-score" class="final-score"></p>
+      <p id="final-percent" class="final-percent"></p>
+      <p id="result-message" class="result-message"></p>
+      <p id="result-best" class="best-score"></p>
+
+      <h3>Review your answers</h3>
+      <div id="review-list" class="review-list"></div>
+
+      <button id="restart-btn" class="btn btn-primary" type="button">Restart Quiz</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built with HTML, CSS and JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

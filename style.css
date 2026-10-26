@@ -1,0 +1,318 @@
+/* ===== 1. Theme colours (CSS variables) ===== */
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-text: #ffffff;
+  --secondary: #e5e7eb;
+  --border: #d1d5db;
+  --track: #e5e7eb;
+  --correct: #15803d;
+  --correct-bg: #dcfce7;
+  --wrong: #b91c1c;
+  --wrong-bg: #fee2e2;
+}
+
+/* Dark mode: same variable names, different values */
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --primary: #3b82f6;
+  --secondary: #334155;
+  --border: #475569;
+  --track: #334155;
+  --correct: #4ade80;
+  --correct-bg: #14532d;
+  --wrong: #f87171;
+  --wrong-bg: #7f1d1d;
+}
+
+/* ===== 2. Base styles ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===== 3. Layout ===== */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.top-bar h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.container {
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.footer {
+  text-align: center;
+  padding: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ===== 4. Text elements ===== */
+h2 {
+  margin-top: 0;
+}
+
+.best-score {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* ===== 5. Buttons ===== */
+.btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-text);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--text);
+}
+
+#start-btn,
+#restart-btn {
+  margin-top: 12px;
+}
+
+.theme-btn {
+  background: var(--secondary);
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ===== 6. Quiz screen ===== */
+.quiz-meta {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.progress-track {
+  height: 10px;
+  background: var(--track);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.question-text {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+.options {
+  display: grid;
+  gap: 10px;
+}
+
+.option-btn {
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.option-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+}
+
+.option-btn:disabled {
+  cursor: default;
+}
+
+.option-btn.correct {
+  border-color: var(--correct);
+  background: var(--correct-bg);
+  font-weight: bold;
+}
+
+.option-btn.wrong {
+  border-color: var(--wrong);
+  background: var(--wrong-bg);
+}
+
+.feedback {
+  min-height: 1.5em;
+  margin: 16px 0;
+  font-weight: bold;
+}
+
+.feedback.good {
+  color: var(--correct);
+}
+
+.feedback.bad {
+  color: var(--wrong);
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* ===== 7. Result screen ===== */
+.final-score {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.final-percent {
+  font-size: 1.1rem;
+  margin: 4px 0;
+}
+
+.result-message {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin: 12px 0;
+}
+
+.review-list {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.review-item {
+  padding: 12px 14px;
+  border-left: 6px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.review-item.good {
+  border-left-color: var(--correct);
+}
+
+.review-item.bad {
+  border-left-color: var(--wrong);
+}
+
+.review-item p {
+  margin: 4px 0;
+}
+
+.review-question {
+  font-weight: bold;
+}
+
+/* ===== 8. Responsive design ===== */
+@media (max-width: 600px) {
+  .card {
+    padding: 18px;
+  }
+
+  .question-text {
+    font-size: 1.1rem;
+  }
+
+  .nav-buttons {
+    flex-direction: column-reverse;
+  }
+
+  .nav-buttons .btn {
+    width: 100%;
+  }
+
+  #start-btn,
+  #restart-btn {
+    width: 100%;
+  }
+}
