@@ -72,8 +72,8 @@ Keyboard shortcuts 1 to 4 need exactly four options per question.
 
 ## Live Demo
 
-Live link: _add your Vercel or Netlify link here_
+https://quiz-app-prince.netlify.app
 
 ## Author
 
-_Your name, roll number, and college_
+   Prince Dandge | URN No: E25B031504 | Ajeenkya DY Patil College, Pune
