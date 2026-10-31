@@ -13,7 +13,7 @@
   --correct-bg: #dcfce7;
   --wrong: #b91c1c;
   --wrong-bg: #fee2e2;
-}
+}  
 
 /* Dark mode: same variable names, different values */
 [data-theme="dark"] {
